@@ -1,32 +1,31 @@
-<!DOCTYPE html>
-<html lang="pt_br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="cadastro_usu.css">
-    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
-    <title>Cadastro</title>
-</head>
-<body>
-    
+<?php
 
-    <div class = "fundo_cadastro">
-        <img src="user.png" alt="user" id="user">
-        <form action="" class="form">
-        <p id="nome_usu">Nome Completo:</p>
-        <input type="text" name="nome_usu" id="nome_input" required>
-        <p id="email_usu">E-mail:</p>
-        <input type="email" name="email_usu" id="email_input" required>
-        <p id="cep_usu">CEP:</p>
-        <input type="number" name="cep_usu" id="cep_input" required>
-        <p id="senha_usu">Senha:</p>
-        <input type="password" name="senha_usu" id="senha_input" placeholder="No mínimo 6 caracteres e no máximo 8" maxlength="8" minlength="6" required>
-        <p id="conf_usu">Confirmar Senha:</p>
-        <input type="password" name="conf_usu" id="conf_input" placeholder="Deve ser igual a senha" maxlength="8" minlength="6" required>
-        </form>
-    </div>
-    <img src="salad.png" alt="salad" id="salad">
-    <img src="tomato.png" alt="tomato" id="tomato">
-</body>
-</html>
+$server = "127.0.0.1:3307"; //servidor
+$user = "root"; //usuario
+$password = ""; //senha
+$db = "cadastro_hungr-e"; //banco de dados
+
+$conn = mysqli_connect($server, $user, $password, $db); // conexão com banco de dados
+
+// Check connection
+if($conn === false){
+    die("ERROR: Could not connect. " . mysqli_connect_error());
+}
+ 
+$nome = mysqli_real_escape_string($conn, $_REQUEST['nome_input']);
+$email = mysqli_real_escape_string($conn, $_REQUEST['email_input']);
+$cep = mysqli_real_escape_string($conn, $_REQUEST['cep_input']);
+$senha = mysqli_real_escape_string($conn, $_REQUEST['senha_input']);
+$confirma_senha = mysqli_real_escape_string($conn, $_REQUEST['conf_input']);
+ 
+// Attempt insert query execution
+$sql = "INSERT INTO cadastro_usuario(nome_usu, email_usu, cep_usu,senha_usu,conf_senha_usu ) VALUES ('$nome', '$email', '$cep','$senha', '$confirma_senha')";
+if(mysqli_query($conn, $sql)){
+    header("Location: pag_inicial.html"); exit;
+} else{
+    echo "ERROR: Descupa ocorreu um erro :( $sql. " . mysqli_error($conn);
+}
+ 
+// Close connection
+mysqli_close($conn);
+?>

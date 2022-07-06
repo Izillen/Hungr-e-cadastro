@@ -1,0 +1,192 @@
+@font-face {
+    font-family: Cocogoose;
+    src: url('cocogoose/Cocogoose\ Pro\ Light-trial.ttf');
+    }
+    .top-page{
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+    .ultPedidos {
+        background-color: #FF8F51;
+        border: solid #FF8F51;
+        box-shadow: 0 0 0 10px #FF8F51;
+        min-width: 300px;
+    }
+    .restaurantesRec {
+        margin-top: 25px;
+        background-color: #FF8F51;
+        border: solid #FF8F51;
+        box-shadow: 0 0 0 10px #FF8F51;
+        min-width: 300px;
+    }
+    h1 {
+        color: white;
+        font-size: 16pt;
+        font-family: Cocogoose;
+        text-align: center;
+    }
+    .botao-pedidos {
+        position: absolute;
+        top: 22px;
+        border: none;
+        background: none;
+    }
+    .botao-restaurantes {
+        position: absolute;
+        top: 110px;
+        left: 0px;
+        border: none;
+        background: none;
+    }
+    .img-botao {
+        width: 30px;
+        height: 30px;
+    }
+    .modal-container {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        z-index: 2000;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        display: none;
+    }
+    .modal {
+        background-color: gray;
+        width: 100%;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border: solid gray;
+        box-shadow: 0px 1px 20px 1px;
+        position: relative;
+    }
+    .rodape {
+        position: fixed;
+        bottom: 65px;
+    }
+    #rodape_pedidos {
+        position: relative;
+        padding-top: 5px;
+        height: 70px;
+        left: -8px;
+        bottom: -70px;
+        background-color: white;
+        display: flex;
+        justify-content: space-evenly;
+    }
+    #inicio_pedidos {
+        background: none;
+        border: none;
+        font-family: Cocogoose;
+        font-size: 12px;
+        font-weight: bold;
+        color: gray;
+    }
+    #pesquisa_pedidos {
+        background: none;
+        border: none;
+        font-family: Cocogoose;
+        font-size: 12px;
+        font-weight: bold;
+        color: gray;
+    }
+    #pedidos_pedidos {
+        background: none;
+        border: none;
+        font-family: Cocogoose;
+        font-size: 12px;
+        font-weight: bold;
+        color: gray;
+    }
+    #perfil_pedidos {
+        background: none;
+        border: none;
+        font-family: Cocogoose;
+        font-size: 12px;
+        font-weight: bold;
+        color: gray;
+    }
+    .titulo-carrinho {
+        color: white;
+        font-size: 20px;
+        font-family: Cocogoose;
+        padding-left: 10pt;
+    }
+    .carrinho {
+        position: relative;
+        bottom: -70px;
+        left: -8px;
+        border: 2px solid white;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        box-shadow: 0px 1px 10px 1px;
+        background: white;
+        width: 99vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .conteudoCarrinho {
+        color: white;
+        font-family: Cocogoose;
+        font-weight: bolder;
+        text-align: center;
+    }
+    #text-carrinho {
+        color: gray;
+        font-family: Cocogoose;
+        font-weight: bolder;
+        border: none;
+        background: none;
+        position: relative;
+        top: 7px;
+    }
+    #setinha {
+        position: absolute;
+        top: -8px;
+        left: 162px;
+    }
+    .fechar {
+        color: rgba(255,255,255,.5);
+        font-family: Cocogoose;
+        font-size: 20px;
+        position: absolute;
+        top: 7px;
+        right: 9px;
+        border: solid gray;
+        border-radius: 12px;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.322);
+        background: none;
+        cursor: pointer;
+    }
+    .modal-container.mostrar {
+        display: flex;
+    }
+
+    @keyframes modal {
+        from {
+            transform: translate3d(0, 200px, 0);
+        }
+        to {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    @keyframes fechar {
+        from {
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
+        }
+    }
+
+    .mostrar .modal {
+        animation: modal 0.5s;
+    }
+
+    
